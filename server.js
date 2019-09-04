@@ -28,7 +28,7 @@ app.get("/api/hello", function (req, res) {
 // Main API endpoint
 app.get("/api/whoami", (req, res) => {
   res.json({
-    'ip_addres': req.headers['x-forwarded-for'],
+    'ip_addres': req.headers['x-forwarded-for'].split('::')[0],
     'language': req.headers['accept-language'],
     'software': req.headers['user-agent']
   });
